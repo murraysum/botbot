@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require 'botbot'
+
+Botbot.configure do |config|
+  config.name = "Jarvis"
+end
+
+Botbot.run do |bot|
+  bot.hear(/who are you/) do
+    `say #{Botbot.name}`
+  end
+end

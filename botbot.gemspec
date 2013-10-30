@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Botbot::VERSION
   spec.authors       = ["Murray Summers"]
   spec.email         = ["murray.sum@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "a little robot"
+  spec.summary       = "a little robot summary"
   spec.homepage      = ""
 
   spec.files         = `git ls-files`.split($/)
