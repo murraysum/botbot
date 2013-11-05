@@ -11,6 +11,10 @@ module Botbot
       end
       @handler = handler
     end
+
+    def match?(utterance)
+      !(utterance =~ matcher).nil?
+    end
   end
 end
 

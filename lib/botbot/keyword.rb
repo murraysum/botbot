@@ -5,18 +5,11 @@ module Botbot
       `rec -t flac -c 2 /tmp/keyword_listen.flac silence -l 1 0 0.1% 1 2.0 1% rate 16k`
 
       data = File.read('/tmp/keyword_listen.flac')
-      hypotheses = Client.get(data)
+      utterance = Client.get(data)
 
-      if !hypotheses.nil? && !hypotheses.empty?
-        utterance = hypotheses.first["utterance"]
-        puts "google thought you said #{utterance}"
-
-        if utterance == Botbot.name
-          `say #{"How can I help"}`
-          yield
-        end
-      else
-        puts "hypotheses was empty"
+      if !utterance.nil? && utterance == Botbot.name
+        `say #{"How can I help"}`
+        yield
       end
     end
   end

@@ -13,6 +13,12 @@ module Botbot
       response = http.request(request)
       json_response = JSON.parse(response.body)
       hypotheses = json_response["hypotheses"]
+
+      if !hypotheses.nil? && hypotheses.any?
+        utterance = hypotheses.first["utterance"]
+      else
+        nil
+      end
     end
   end
 end
