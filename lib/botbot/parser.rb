@@ -12,8 +12,8 @@ module Botbot
 
     def run
 
-      `rec -t flac -c 2 /tmp/parser.flac silence -l 1 0 0.1% 1 2.0 1% rate 16k`
-      data = File.read('/tmp/parser.flac')
+      `rec -t flac -c 2 /tmp/botbot.flac silence -l 1 0 0.1% 1 2.0 1% rate 16k`
+      data = File.read('/tmp/botbot.flac')
       utterance = Client.get(data)
       if !utterance.nil?
         match = @commands.detect { |command| command.match?(utterance) }

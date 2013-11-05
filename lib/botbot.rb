@@ -26,10 +26,15 @@ module Botbot
   def self.run
     parser = Parser.new
     yield parser
+
+    keyword = Parser.new
+    keyword.hear(Botbot.name) do
+      `say #{"How can I help?"}`
+      parser.run
+    end
+
     loop do
-      Keyword.hear do
-        parser.run
-      end
+      keyword.run
       sleep 2
     end
   end
