@@ -19,6 +19,10 @@ module Botbot
     yield @config
   end
 
+  def self.debug?
+    @config.debug
+  end
+
   def self.run
     parser = Parser.new
     yield parser
