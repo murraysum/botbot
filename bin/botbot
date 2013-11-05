@@ -7,6 +7,6 @@ end
 
 Botbot.run do |bot|
   bot.hear(/who are you/i) do
-    `say #{Botbot.name}`
+    bot.say("Hello World, I am #{Botbot.name}")
   end
 end

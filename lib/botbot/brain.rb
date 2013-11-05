@@ -1,5 +1,5 @@
 module Botbot
-  class Parser
+  class Brain
     def initialize
       @commands = []
     end
@@ -10,11 +10,12 @@ module Botbot
       command
     end
 
-    def run
+    def say(message)
+      Senses.say(message)
+    end
 
-      `rec -t flac -c 2 /tmp/botbot.flac silence -l 1 0 0.1% 1 2.0 1% rate 16k`
-      data = File.read('/tmp/botbot.flac')
-      utterance = Client.get(data)
+    def think
+      utterance = Senses.listen
       if !utterance.nil?
         match = @commands.detect { |command| command.match?(utterance) }
         if !match.nil?

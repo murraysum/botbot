@@ -4,7 +4,8 @@ require 'json'
 require 'date'
 
 module Botbot
-  require_relative 'botbot/parser'
+  require_relative 'botbot/brain'
+  require_relative 'botbot/senses'
   require_relative 'botbot/command'
   require_relative 'botbot/client'
   require_relative 'botbot/keyword'
@@ -24,18 +25,19 @@ module Botbot
   end
 
   def self.run
-    parser = Parser.new
-    yield parser
+    brain = Brain.new
+    yield brain
 
-    keyword = Parser.new
+    keyword = Brain.new
     keyword.hear(Botbot.name) do
-      `say #{"How can I help?"}`
-      parser.run
+      keyword.say("How can I help?")
+      brain.think
     end
 
     loop do
-      keyword.run
+      keyword.think
       sleep 2
     end
   end
 end
+
