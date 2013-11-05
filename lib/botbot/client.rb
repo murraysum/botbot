@@ -17,6 +17,7 @@ module Botbot
       if !hypotheses.nil? && hypotheses.any?
         utterance = hypotheses.first["utterance"]
       else
+        Botbot.log("No utterance")
         nil
       end
     end

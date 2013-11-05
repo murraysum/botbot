@@ -20,10 +20,8 @@ module Botbot
         if !match.nil?
           match.handler.call
         else
-          puts "No match but google heard #{utterance}"
+          Botbot.log("No match for utterance: #{utterance}")
         end
-      else
-        puts "nothing back from google"
       end
     end
   end
