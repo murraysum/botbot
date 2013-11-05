@@ -1,7 +1,7 @@
 module Botbot
   class Configuration
 
-    attr_accessor :name
+    attr_accessor :name, :debug
 
     def initialize(name = nil)
       @name = name

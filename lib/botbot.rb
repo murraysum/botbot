@@ -19,14 +19,13 @@ module Botbot
     yield @config
   end
 
-  def self.debug?
-    @config.debug
+  def self.log(message)
+    puts "#{DateTime.now.strftime("%Y-%m-%d %H:%S")} #{message}" if @config.debug?
   end
 
   def self.run
     parser = Parser.new
     yield parser
-
     loop do
       Keyword.hear do
         parser.run
