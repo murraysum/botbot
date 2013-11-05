@@ -6,7 +6,7 @@ Botbot.configure do |config|
 end
 
 Botbot.run do |bot|
-  bot.hear(/who are you/) do
+  bot.hear(/who are you/i) do
     `say #{Botbot.name}`
   end
 end

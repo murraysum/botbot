@@ -31,13 +31,3 @@ module Botbot
     end
   end
 end
-
-# Botbot.configure do |config|
-#   config.name = "Jarvis"
-# end
-
-# Botbot.run do |bot|
-#   bot.hear(/who are you/) do
-#     `say #{"Hello"}`
-#   end
-# end

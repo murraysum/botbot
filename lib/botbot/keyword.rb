@@ -1,7 +1,6 @@
 module Botbot
   class Keyword
     def self.hear
-      match_keyword = "Jarvis"
       # `rec -t flac -c 2 keyword_listen.flac trim 0 00:06 rate 16k`
       `rec -t flac -c 2 /tmp/keyword_listen.flac silence -l 1 0 0.1% 1 2.0 1% rate 16k`
 
@@ -12,7 +11,7 @@ module Botbot
         utterance = hypotheses.first["utterance"]
         puts "google thought you said #{utterance}"
 
-        if utterance == match_keyword
+        if utterance == Botbot.name
           `say #{"How can I help"}`
           yield
         end

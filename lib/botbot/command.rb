@@ -5,7 +5,7 @@ module Botbot
 
     def initialize(matcher, handler)
       if matcher.is_a?(String)
-        @matcher = Regexp.new("^#{matcher}$")
+        @matcher = Regexp.new("^#{matcher}$", Regexp::IGNORECASE)
       else
         @matcher = matcher
       end
