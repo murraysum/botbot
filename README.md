@@ -1,6 +1,6 @@
 # Botbot
 
-TODO: Write a gem description
+A little voice activated robot.
 
 ## Installation
 
@@ -18,7 +18,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+#!/usr/bin/env ruby
+require 'botbot'
+
+Botbot.configure do |config|
+  config.name = "Butler"
+end
+
+Botbot.run do |bot|
+  bot.hear(/who are you/i) do
+    bot.say("Hello World, I am #{Botbot.name}")
+  end
+end
+```
 
 ## Contributing
 
