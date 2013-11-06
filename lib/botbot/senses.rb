@@ -8,7 +8,8 @@ module Botbot
     end
 
     def self.say(message)
-      `say "#{message}"`
+      `echo #{message} | festival_client --ttw | aplay`
+      # `say "#{message}"`
     end
   end
 end
